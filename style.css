@@ -1,0 +1,130 @@
+:root {
+  --primary-color: #f1d863;
+  --text-gray: #575553;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  padding: 2rem;
+  background-color: #f7f7f7;
+  color: var(--text-gray);
+}
+
+/****** Header *******/
+header .navbar-color {
+  background-color: var(--primary-color);
+}
+
+header .navbar-color a {
+  text-decoration: none;
+  color: var(--text-gray);
+}
+
+header .navbar-color h1 {
+  display: inline-block;
+}
+header .navbar-brand img{
+  vertical-align: middle;
+  margin: 0 4px 10px;
+}
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+h2,
+h3 {
+  text-align: center;
+}
+code {
+    background: #444;
+    color: white;
+    padding: 0  0.4rem 1rem;
+    border-radius: 4px;
+    display: block;
+    margin: 1rem;
+    font-size: large;
+  }
+
+/****** Detalles *******/
+details {
+  margin-top: 1rem;
+  border: 1px solid #ccc;
+  background-color: rgb(240, 218, 218);
+  border-radius: 0.75rem;
+  
+  padding: 1.5rem;
+  width: 98%;
+}
+
+summary {
+  font-weight: bold;
+  cursor: pointer;
+  color: #212529;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, .125);
+  border-radius: 0.75rem;
+  padding: 0.5rem;
+  margin-top: 0;
+  margin-bottom: .5rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+
+
+/****** Footer *******/
+.bg-color-footer {
+  background-color: var(--primary-color);
+}
+.py-2 {
+    padding-top: .5rem ;
+    padding-bottom: .5rem ;
+}
+.bg-color-footer p,
+.bg-color-footer p a {
+  color: var(--text-gray);
+  font-weight: 500;
+  text-align: center;
+}
+
+
+@media (max-width: 576px) {
+  header h1 {
+    font-size: 1rem;
+    line-height: 1.2;
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+
+  header img {
+    width: 32px;
+    height: 32px;
+  }
+
+  summary {
+    font-size: 1rem;
+  }
+
+
+
+  body {
+    padding: 1rem;
+  }
+
+  footer {
+    padding: 1rem 0.5rem;
+  }
+
+  footer p {
+    font-size: 0.9rem;
+  }
+  details {
+  margin-top: 1rem;
+  border: 1px solid #ccc;
+  background-color: rgb(240, 218, 218);
+  border-radius: 0.75rem;  
+  padding: .5rem 1rem;
+  width: 98%;
+}
+}
