@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios de Linux con Cygwin: Permisos y Seguridad</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      background-color: #f7f7f7;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    details {
+      margin-bottom: 1rem;
+      background: #fff;
+      border: 1px solid #ccc;
+      padding: 1rem;
+      border-radius: 5px;
+    }
+    summary {
+      font-weight: bold;
+      cursor: pointer;
+      color: #006699;
+    }
+    code {
+      background: #444;
+      color: white;
+      padding: 0  0.4rem 1rem;
+      border-radius: 4px;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ejercicios de Linux: Permisos y Seguridad con Cygwin</h1>
+
+  <details>
+    <summary>Ejercicio 1: Crear un entorno de pruebas
+      <p><strong>Objetivo:</strong> Familiarizarse con la terminal, crear una carpeta segura y un entorno de trabajo para el resto de ejercicios.</p>
+      <p>Crea una carpeta llamada seguridad y dentro un archivo datos.txt, un archivo informe.txt y un archivo config.sh</p>
+    </summary>
+    <pre><code>
+        mkdir ~/seguridad
+        cd ~/seguridad
+        touch datos.txt informe.txt config.sh</code></pre>
+  </details>
+
+  <details>
+    <summary>Ejercicio 2: Ver permisos actuales
+      <p><strong>Objetivo:</strong> Entender la estructura de permisos de archivos y directorios en Linux.</p>
+      <p>Lista los archivos de tu carpeta y analiza los permisos de cada uno.</p>
+    </summary>
+    <pre><code>
+        ls -l</code></pre>
+  </details>
+
+  <details>
+    <summary>Ejercicio 3: Cambiar permisos de lectura y escritura
+      <p><strong>Objetivo:</strong> Restringir el acceso a un archivo solo al propietario.</p>
+      <p>Aplica permisos 600 al archivo datos.txt y comprueba el resultado.</p>
+    </summary>
+    <pre><code>
+        chmod 600 datos.txt
+        ls -l datos.txt</code></pre>
+  </details>
+
+  <details>
+    <summary>Ejercicio 4: Otorgar permiso de ejecución
+      <p><strong>Objetivo:</strong> Convertir un archivo de texto en un script ejecutable.</p>
+      <p>Concede permiso de ejecución al archivo config.sh y ejecútalo.</p>
+    </summary>
+    <pre><code>
+        chmod +x config.sh
+        ls -l config.sh
+        ./config.sh</code></pre>
+  </details>
+
+  <details>
+    <summary>Ejercicio 5: Cambiar propietario y grupo
+      <p><strong>Objetivo:</strong> Modificar la propiedad de un archivo para otro usuario o grupo.</p>
+      <p>Averigua tu usuario actual y cambia el propietario de datos.txt.</p>
+    </summary>
+    <pre><code>
+        whoami
+        id
+        chown tu_usuario:tu_grupo datos.txt</code></pre>
+  </details>
+
+  <details>
+    <summary>Ejercicio 6: Crear un archivo que el grupo no pueda modificar
+      <p><strong>Objetivo:</strong> Controlar la visibilidad de un archivo según pertenencia a grupo.</p>
+      <p>Crea un archivo informe.txt con permisos de escritura y lectura para el propietario (6), solo lectura para el grupo (4) y sin permisos para otros (0)</p>
+    </summary>
+    <pre><code>
+        touch informe.txt
+        chmod 640 informe.txt</code></pre>
+  </details>
+
+  <details>
+    <summary>Ejercicio 7: Proteger una carpeta con permisos mínimos
+      <p><strong>Objetivo:</strong> Restringir el acceso a un directorio solo al propietario.</p>
+      <p>Crea una carpeta confidencial y asigna permisos 700.</p>
+    </summary>
+    <pre><code>
+        mkdir confidencial
+        chmod 700 confidencial</code></pre>
+  </details>
+
+  <details>
+    <summary>Ejercicio 8: Comprobar permisos con stat
+      <p><strong>Objetivo:</strong> Usar herramientas para ver información extendida de archivos.</p>
+      <p>Consulta con stat los detalles del archivo informe.txt.</p>
+    </summary>
+    <pre><code>
+        stat informe.txt</code></pre>
+  </details>
+
+  <details>
+    <summary>Ejercicio 9: Cambiar permisos simbólicamente
+      <p><strong>Objetivo:</strong> Aplicar permisos mediante letras en lugar de números.</p>
+      <p>Asigna permisos de lectura y escritura al usuario, solo lectura al grupo y nada a otros en informe.txt. Usa la notación sin números (rwx)</p>
+    </summary>
+    <pre><code>
+        chmod u=rw,g=r,o= informe.txt
+        ls -l informe.txt</code></pre>
+  </details>
+
+  <details>
+    <summary>Ejercicio 10: Recuperar permisos estándar
+      <p><strong>Objetivo:</strong> Restaurar permisos comunes para compartir archivos de forma segura.</p>
+        <ul>
+    <li><strong>Archivo informe.txt</strong>: 
+      <ul>
+        <li>Usuario (propietario): lectura y escritura</li>
+        <li>Grupo: solo lectura</li>
+        <li>Otros: solo lectura</li>
+      </ul>
+    </li>
+    <li><strong>Carpeta confidencial</strong>: 
+      <ul>
+        <li>Usuario (propietario): lectura, escritura y ejecución</li>
+        <li>Grupo y otros: lectura y ejecución</li>
+      </ul>
+    </li>
+  </ul>
+    </summary>
+    <pre><code>
+        chmod 644 informe.txt
+        chmod 755 confidencial</code></pre>
+  </details>
+
+</body>
+</html>
